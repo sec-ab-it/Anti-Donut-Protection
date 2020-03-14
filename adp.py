@@ -10,29 +10,8 @@ keyboard_controller = keyboard.Controller()
 screen_locked = Event()
 
 
-# Mouse handlers
-def on_move(x, y):
-    lock_screen()
-    return False
-
-
-def on_click(x, y, button, pressed):
-    lock_screen()
-    return False
-
-
-def on_scroll(x, y, dx, dy):
-    lock_screen()
-    return False
-
-
-# Keyboard handlers
-def on_press(key):
-    lock_screen()
-    return False
-
-
-def on_release(key):
+def on_anything(*args):
+    # Universal handler for any input
     lock_screen()
     return False
 
@@ -47,13 +26,13 @@ def lock_screen():
 
 
 keyboard_listener = keyboard.Listener(
-    on_press=on_press,
-    on_release=on_release)
+    on_press=on_anything,
+    on_release=on_anything)
 
 mouse_listener = mouse.Listener(
-    on_move=on_move,
-    on_click=on_click,
-    on_scroll=on_scroll)
+    on_move=on_anything,
+    on_click=on_anything,
+    on_scroll=on_anything)
 
 print("Program will be activated within 5 seconds...")
 sleep(5)
