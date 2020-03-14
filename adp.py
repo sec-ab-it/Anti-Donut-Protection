@@ -6,8 +6,6 @@ from pynput import mouse, keyboard
 from camera import save_victim_image
 from arg_parser import args
 
-keyboard_controller = keyboard.Controller()
-
 screen_locked = Event()
 
 
