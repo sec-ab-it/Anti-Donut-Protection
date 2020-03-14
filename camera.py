@@ -1,6 +1,6 @@
 import cv2
-from datetime import datetime
 import pathlib
+from datetime import datetime
 
 victims_dir = pathlib.Path('victims')
 
