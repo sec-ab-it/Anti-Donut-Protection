@@ -3,6 +3,7 @@ import os
 from time import sleep
 from threading import Event
 from pynput import mouse, keyboard
+from camera import save_victim_image
 
 keyboard_controller = keyboard.Controller()
 
@@ -41,6 +42,7 @@ def lock_screen():
         ctypes.windll.user32.LockWorkStation()
     else:  # Mac Os
         ctypes.CDLL('/System/Library/PrivateFrameworks/login.framework/Versions/Current/login').SACLockScreenImmediate()
+    save_victim_image()
     screen_locked.set()
 
 
